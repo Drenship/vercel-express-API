@@ -1,14 +1,28 @@
-import express from "express";
+const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
 const port = 9000;
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+
 app.use(require('./lib/router/router'));
 
-app.use("/", (req, res) => {
-  res.json({ message: "Hello From Express App" });
+app.get("/", (req, res) => {
+    res.status(201).json({ message: "Hello From Express App" });
 });
 
-app.listen(9000, () => {
+/**
+ * Error catch
+ * gestion des erreurs par default
+ */
+app.use((err, req, res, next) => {
+    console.log('Default Error catch call')
+    res.status(500).send({ message: err.message });
+});
+
+app.listen(port, () => {
   console.log(`Starting Server on Port http://localhost:${port}`);
 });
