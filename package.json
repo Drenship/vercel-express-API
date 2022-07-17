@@ -1,26 +1,15 @@
 {
-  "name": "Airbnb-monoripos",
-  "version": "0.0.0",
-  "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
-  "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev --parallel",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
-  },
-  "devDependencies": {
-    "eslint-config-custom": "*",
-    "prettier": "latest",
-    "turbo": "latest"
-  },
-  "engines": {
-    "npm": ">=7.0.0",
-    "node": ">=14.0.0"
-  },
-  "dependencies": {},
-  "packageManager": "npm@8.8.0"
-}
+    "name": "express-vercel-api",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js","type": "module",
+    "scripts": {
+      "start": "node index.js",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "express": "^4.17.3"
+    }
+  }
