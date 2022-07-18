@@ -32,11 +32,12 @@ app.use((req, res, next) => {
     res.status(401).send({
       error_name: 'ACCESS_DENIED',
       error_type: '401',
-      error_message: 'Access not authorized !'
-  });
+      error_message: 'Access not authorized !',
+      host: req.headers.host,
+    })
   }
   return next();
-})
+}) 
 
 
 
