@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 
 // middleware allow access to website api
 app.use((req, res, next) => {
-  if(!['localhost:3000', '127.0.0.1:3000', '192.168.1.16:3000', 'vercel-express-api-inky.vercel.app', 'airbnb-mantis.vercel.app'].includes(req.headers.host)) {
+  if(!['vercel-express-api-inky.vercel.app', 'airbnb-mantis.vercel.app'].includes(req.headers.host)) {
     //const errorMessage = errorMessages('ACCESS_DENIED');
     res.status(401).send({
       error_name: 'ACCESS_DENIED',
