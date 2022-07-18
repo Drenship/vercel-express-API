@@ -27,9 +27,13 @@ app.use(bodyParser.json());
 
 // middleware allow access to website api
 app.use((req, res, next) => {
-  if(!['localhost:8080', '127.0.0.1:8080', '192.168.1.16:8080', 'https://airbnb-mantis.vercel.app/'].includes(req.headers.host)) {
-    const errorMessage = errorMessages('ACCESS_DENIED');
-    res.status(401).send(errorMessage);
+  if(!['localhost:3000', '127.0.0.1:3000', '192.168.1.16:3000'].includes(req.headers.host)) {
+    //const errorMessage = errorMessages('ACCESS_DENIED');
+    res.status(401).send({
+      error_name: 'ACCESS_DENIED',
+      error_type: '401',
+      error_message: 'Access not authorized !'
+  });
   }
   return next();
 })
